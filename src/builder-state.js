@@ -164,7 +164,7 @@ export default class BuilderContainer extends Container {
     // Update item text on focus out when contenteditable is enabled
     canvasModUpdateText = (event, itemKey) => {
         const canvasItems = this.state.canvas.props.children;
-        const itemTextProp = event.target.getAttribute('data-text-prop');
+        const itemTextProp = event.target.getAttribute('data-text-prop'); console.log(itemTextProp)
         const newText = event.target.textContent;
         const canvasItemsList = List(canvasItems);
         const itemIndex = canvasItems.findIndex(item => item.key === itemKey);

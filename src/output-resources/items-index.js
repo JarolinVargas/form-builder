@@ -6,7 +6,7 @@ import {Header1} from './items.js';
 export const ItemsIndex = {
     Header1: {
         id: 'Header1',
-        tag: <Header1 text1="Application Form" text2="Lorem ipsum dolor dit amet" text3="Test"/>,
+        tag: <Header1 text1="Application Formss" text2="Lorem ipsum dolor dit amet"/>,
         settings: {
             ToggleSwitch: [
                 {label: 'Heading', target: null},
