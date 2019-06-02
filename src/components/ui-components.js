@@ -12,10 +12,11 @@ library.add(faToggleOn, faToggleOff, faCircle, faDotCircle, faSquare, faCheckSqu
 export class InputTextField extends Component {
     render() {
         const marginBottom30 = this.props.marginBottom30 ? "fb-margin-bottom-30" : null; // Bottom margin class
+        const defaultStyleOff = this.props.defaultStyleOff ? "fb-default-style-off" : null; // Remove default padding, box shadow, background styles
         return (
             <Subscribe to={[BuilderContainer]}>
                 {BSC => (
-                    <div className={`fb-input-textfield-container ${marginBottom30}`} onMouseEnter={() => BSC.actionInfo(this.props.actionInfo)}>
+                    <div className={`fb-input-textfield-container ${marginBottom30} ${defaultStyleOff}`} onMouseEnter={() => BSC.actionInfo(this.props.actionInfo)}>
                         {this.props.options.map((option, index) => {
                             const stateProp = option.stateProp;
                             return (
@@ -90,7 +91,7 @@ export class RangeInput extends Component {
 }
 
 
-// Input and radio checkbox menu
+// Input and radio menu
 export class InputRadioOptions extends Component {
     render() {
         const marginBottom30 = this.props.marginBottom30 ? "fb-margin-bottom-30" : null; // Bottom margin class
@@ -108,6 +109,40 @@ export class InputRadioOptions extends Component {
                                         <div className="fb-input-container">
                                             <FontAwesomeIcon icon={radioIcon}/>
                                             <input type="radio" value={option.value} name={stateProp} checked={radioChecked} onChange={(event) => BSC.inputRadioOptionsChange(event, stateProp)}/>
+                                        </div>
+                                        <div className="fb-value-container fb-value-content-text">{option.label}</div>
+                                    </label>
+                                )
+                            })}
+                        </div>
+                    </div>
+                )}
+            </Subscribe>
+        )
+    }
+}
+
+
+// Input and checkbox menu
+export class InputCheckboxOptions extends Component {
+    render() {
+        const marginBottom30 = this.props.marginBottom30 ? "fb-margin-bottom-30" : null; // Bottom margin class
+        const defaultStyleOff = this.props.defaultStyleOff ? "fb-default-style-off" : null; // Remove default padding, box shadow, background styles
+        const inline = this.props.inline ? "checkbox-radio-inline" : null; // Inline style showing items per row
+        return (
+            <Subscribe to={[BuilderContainer]}>
+                {BSC => (
+                    <div className={`fb-radio-options-container ${marginBottom30} ${defaultStyleOff}`} onMouseEnter={() => BSC.actionInfo(this.props.actionInfo)}>
+                        <div className={`fb-checkbox-radio-container ${inline}`}>
+                            {this.props.options.map((option, index) => {
+                                const stateProp = option.stateProp;
+                                const checkboxChecked = option.checked;
+                                const checkboxIcon = checkboxChecked ? 'check-square' : 'square';
+                                return (
+                                    <label key={index}>
+                                        <div className="fb-input-container">
+                                            <FontAwesomeIcon icon={checkboxIcon}/>
+                                            <input type="checkbox" name="test" checked={checkboxChecked} onChange={console.log('test')}/>
                                         </div>
                                         <div className="fb-value-container fb-value-content-text">{option.label}</div>
                                     </label>
@@ -246,6 +281,65 @@ export class Sortable extends Component {
         } else {
             return false;
         }
+    }
+}
+
+
+// Font family
+export class FontFamily extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fonts: null
+        }
+    }
+
+    componentDidMount = () => {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'json';
+        xhr.open('GET', 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyATnX-ZcSuHIUrn8fVyijUdpSJ8aNsMBd0');
+        xhr.onload = () => {
+            if (xhr.readyState === 4) {
+                this.setState({fonts: xhr.response.items});
+            }
+        }
+        xhr.send();
+    }
+
+    loadFonts = () => {
+        return this.state.fonts.map(f => {
+            const name = f.family.replace(' ', '+');
+            return (
+                <React.Fragment>
+                    <li style={{fontFamily: f.family}}><h4>{f.family}</h4><p>Lorem ipsum dolor sit amet contentour</p></li>
+                    <link href={`https://fonts.googleapis.com/css?family=${name}`} rel="stylesheet"/>
+                </React.Fragment>
+            )
+        });
+    }
+
+    render() {
+        let fontItems;
+        if( this.state.fonts !== null ) {
+            fontItems = this.loadFonts();
+        }
+
+        return (
+            <div className="fb-font-family-container">
+                <InputTextField defaultStyleOff options={[{label: 'search fonts', stateProp: ''}]} actionInfo="Change general preview appearance" label="Form width (px/%)"/>
+                <ul className="fb-scrollable-content fb-font-family-fonts-list custom-scrollbar" style={{height: 250}}>
+                    {fontItems}
+                </ul>
+                <InputCheckboxOptions defaultStyleOff inline options={[
+                    {label: '400', value: '400', stateProp: 'targetAttr'},
+                    {label: '500', value: '500', stateProp: 'targetAttr'},
+                    {label: '600', value: '600', stateProp: 'targetAttr'},
+                    {label: '700', value: '700', stateProp: 'targetAttr'},
+                    {label: '800', value: '800', stateProp: 'targetAttr'},
+                    {label: '900', value: '900', stateProp: 'targetAttr'}
+                ]}/>
+            </div>
+        )
     }
 }
 

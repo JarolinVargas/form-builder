@@ -96,6 +96,12 @@ export default class BuilderContainer extends Container {
         this.setState({[stateProp]: val});
     }
 
+    /* input checkbox option
+    inputCheckboxOptionsChange = (event, stateProp) => {
+        const val = event.target.value;
+        this.setState({[stateProp]: val});
+    }*/
+
     // ColorsMenu change color
     colorsMenuChangeColor = (event, checkedBoxes) => {
         console.log(event.target, checkedBoxes)
