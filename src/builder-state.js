@@ -40,6 +40,7 @@ export default class BuilderContainer extends Container {
         // General settings
         generalFontSize: 16,
         reCaptcha: true,
+        fontFamily: 'Raleway',
         // Preview
         previewFormWidth: 1000,
         previewBodyBg: '#FFF',
@@ -95,6 +96,12 @@ export default class BuilderContainer extends Container {
         const val = event.target.value;
         this.setState({[stateProp]: val});
     }
+
+    /* input checkbox option
+    inputCheckboxOptionsChange = (event, stateProp) => {
+        const val = event.target.value;
+        this.setState({[stateProp]: val});
+    }*/
 
     // ColorsMenu change color
     colorsMenuChangeColor = (event, checkedBoxes) => {
