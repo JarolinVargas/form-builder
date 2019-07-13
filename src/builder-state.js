@@ -40,6 +40,7 @@ export default class BuilderContainer extends Container {
         // General settings
         generalFontSize: 16,
         reCaptcha: true,
+        fontFamily: 'Raleway',
         // Preview
         previewFormWidth: 1000,
         previewBodyBg: '#FFF',

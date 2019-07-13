@@ -449,6 +449,10 @@ input[type="range"].fb-custom-range::-webkit-slider-runnable-track {
   margin: 5px 0px 0px 0px;
 }
 
+.fb-font-family-container > .fb-radio-options-container:first-child {
+  margin-bottom: 20px;
+}
+
 /* Scrollable content */
 .fb-scrollable-content {
   overflow-y: scroll;

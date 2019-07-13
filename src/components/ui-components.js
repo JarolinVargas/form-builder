@@ -307,15 +307,29 @@ export class FontFamily extends Component {
     }
 
     loadFonts = () => {
-        return this.state.fonts.map(f => {
+        return this.state.fonts.splice(0, 10).map(f => {
             const name = f.family.replace(' ', '+');
             return (
                 <React.Fragment>
-                    <li style={{fontFamily: f.family}}><h4>{f.family}</h4><p>Lorem ipsum dolor sit amet contentour</p></li>
-                    <link href={`https://fonts.googleapis.com/css?family=${name}`} rel="stylesheet"/>
+                    <li style={{fontFamily: f.family}}>
+                        <h4>{f.family}</h4>
+                        <p>Lorem ipsum dolor sit amet contentour</p>
+                        <link href={`https://fonts.googleapis.com/css?family=${name}`} rel="stylesheet" property="stylesheet"/>
+                    </li>
                 </React.Fragment>
             )
         });
+    }
+
+    selectFont = (event) => {
+        console.log(event.currentTarget)
+    }
+
+    fontsScrolling = (event) => {
+        const el = event.target;
+        if( el.scrollHeight - el.scrollTop === el.clientHeight ) {
+            console.log('load next fonts');
+        }
     }
 
     render() {
@@ -326,12 +340,13 @@ export class FontFamily extends Component {
 
         return (
             <div className="fb-font-family-container">
+                <InputCheckboxOptions defaultStyleOff options={[{label: 'Raleway', value: 'Raleway', stateProp: 'fontFamily', checked: true}]}/>
                 <InputTextField defaultStyleOff options={[{label: 'search fonts', stateProp: ''}]} actionInfo="Change general preview appearance" label="Form width (px/%)"/>
-                <ul className="fb-scrollable-content fb-font-family-fonts-list custom-scrollbar" style={{height: 250}}>
+                <ul className="fb-scrollable-content fb-font-family-fonts-list custom-scrollbar" onClick={this.selectFont} onScroll={this.fontsScrolling} style={{height: 200}}>
                     {fontItems}
                 </ul>
                 <InputCheckboxOptions defaultStyleOff inline options={[
-                    {label: '400', value: '400', stateProp: 'targetAttr'},
+                    {label: '400', value: '400', stateProp: 'targetAttr', checked: true},
                     {label: '500', value: '500', stateProp: 'targetAttr'},
                     {label: '600', value: '600', stateProp: 'targetAttr'},
                     {label: '700', value: '700', stateProp: 'targetAttr'},
