@@ -14,7 +14,9 @@ export default class BuilderContainer extends Container {
                 key: itemKey,
                 itemClick: () => this.setActiveItem(itemKey, item.component.type.name),
                 itemDoubleClick: () => this.canvasModRemove(itemKey),
-                itemTextBlur: (event) => this.canvasModUpdateText(event, itemKey)
+                itemTextBlur: (event) => this.canvasModUpdateText(event, itemKey),
+                sectionClick: (section) => this.setActiveSection(itemKey, section),
+                sectionHover: (hovered) => this.sectionHover(hovered)
             })
         });
     }
@@ -24,7 +26,9 @@ export default class BuilderContainer extends Container {
     state = {
         activeTool: 'add-items',
         activeItem: null,
+        activeSection: null,
         sortingItem: null,
+        canvasHoverFocus: false,
         actionInfo: 'Click any item to add it to the form',
         // Form attributes
         actionAttr: '',
@@ -40,7 +44,6 @@ export default class BuilderContainer extends Container {
         // General settings
         generalFontSize: 16,
         reCaptcha: true,
-        fontFamily: 'Raleway',
         // Preview
         previewFormWidth: 1000,
         previewBodyBg: '#FFF',
@@ -61,7 +64,9 @@ export default class BuilderContainer extends Container {
         const currentTool = this.state.activeTool;
         this.setState({
             activeTool: clickedTool,
-            activeItem: null
+            activeItem: null,
+            activeSection: null,
+            canvasHoverFocus: false
         });
         this.contentEditableToggle(currentTool, clickedTool);
     }
@@ -70,6 +75,49 @@ export default class BuilderContainer extends Container {
     setActiveItem = (itemKey, tag) => {
         if( this.state.activeTool === 'settings' ) {
             this.setState({activeItem: [itemKey, tag]});
+        }
+    }
+
+    // Set active section when clicked
+    setActiveSection = (itemKey, section) => {
+        this.setState({
+            activeSection: [itemKey, section]
+        })
+    }
+
+    // Section hovered
+    sectionHover = (hovered) => {
+        if( this.state.activeSection ) {
+            this.setState({
+                canvasHoverFocus: hovered ? false : true // if section is hovered, canvas hover is false
+            })
+        }
+    }
+
+    // Canvas clicked
+    canvasClicked = () => {
+        if( this.state.activeSection && this.state.canvasHoverFocus ) {
+            this.setState({
+                activeSection: null, // if section is hovered, canvas hover is false
+                canvasHoverFocus: false
+            })
+        }
+    }
+    // Canvas mouse enter
+    canvasMouseEnter = () => {
+        if( this.state.activeSection && this.state.activeTool === 'add-items' ) {
+            console.log('sdfs')
+            this.setState({
+                canvasHoverFocus: true
+            })
+        }
+    }
+    // Canvas mouse leave
+    canvasMouseLeave = () => {
+        if( this.state.activeSection && this.state.canvasHoverFocus ) {
+            this.setState({
+                canvasHoverFocus: false
+            })
         }
     }
 
@@ -97,12 +145,6 @@ export default class BuilderContainer extends Container {
         this.setState({[stateProp]: val});
     }
 
-    /* input checkbox option
-    inputCheckboxOptionsChange = (event, stateProp) => {
-        const val = event.target.value;
-        this.setState({[stateProp]: val});
-    }*/
-
     // ColorsMenu change color
     colorsMenuChangeColor = (event, checkedBoxes) => {
         console.log(event.target, checkedBoxes)
@@ -115,8 +157,22 @@ export default class BuilderContainer extends Container {
         const item = this.prepareItemsForCanvas([{component: ItemsIndex[ItemId].tag}]);
         const canvasItems = this.state.canvas.props.children; // Get React.Fragment children in current canvas
         const canvasItemsList = List(canvasItems); // Convert to list for modification
-        const addItem = canvasItemsList.concat(item); // Add item to current canvasstate
-        const newCanvasState = addItem.toJS(); // Convert from list, back to object
+        let newCanvasState;
+        if( !this.state.activeSection ) {
+            const addItem = canvasItemsList.concat(item); // Add item to current canvasstate
+            newCanvasState = addItem.toJS(); // Convert from list, back to object
+        } else {
+            const clickedItemIndex = canvasItems.findIndex(item => item.key === this.state.activeSection[0]);
+            const itemSectionProp = this.state.activeSection[1];
+            const sectionChildren = canvasItems[clickedItemIndex].props[itemSectionProp];
+            sectionChildren.push(item);
+            console.log(itemSectionProp)
+            const cloneAndInsert = React.cloneElement(canvasItems[clickedItemIndex], {
+                [itemSectionProp]: sectionChildren
+            });
+            const replaceItem = canvasItemsList.set(clickedItemIndex, cloneAndInsert);
+            newCanvasState = replaceItem.toJS();
+        }
         this.setState({canvas: <React.Fragment>{newCanvasState}</React.Fragment>});
     }
 
