@@ -3,12 +3,13 @@
   --general-font-color: #5F5F5F;
   --primary-color: #4865E6;
   --item-hover-outline: solid 2px #4865E6;
+  --light-border-color: #D3D3D3;
   --common-border: solid 1px #D3D3D3;
   --common-background: #FFF;
   --input-field-color: #666;
   --ui-inner-bgcolor: #F7F7F9;
   --common-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
-  --common-border-radius: 3px;
+  --common-border-radius: 2px;
 }
 
 #form-builder {
@@ -133,6 +134,28 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+#fb-canvas.canvas-outline {
+  outline: dashed 2px var(--light-border-color);
+  outline-offset: 7px;
+}
+
+/* empty aligner section */
+.fb-empty-section {
+  min-height: 100px;
+  outline: dashed 2px #D3D3D3;
+  background-image: url('img/section-empty.png');
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+#fb-canvas:not(.settings):not(.remove):not(.text):not(.themes):not(.sort) .fb-empty-section:hover {
+  outline-color: var(--primary-color);
+}
+
+#fb-canvas.canvas-outline-focus {
+  outline-color: var(--primary-color);
 }
 
 

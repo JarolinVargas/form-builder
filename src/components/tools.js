@@ -7,7 +7,7 @@ import TextTool from './tools/text';
 import ThemesTool from './tools/themes';
 import SortTool from './tools/sort';
 import RemoveTool from './tools/remove';
-import PreviewTool from './tools/preview';
+//import PreviewTool from './tools/preview';
 import ImportTool from './tools/import';
 import ExportTool from './tools/export';
 import {library} from '@fortawesome/fontawesome-svg-core';
@@ -16,7 +16,7 @@ import {faPlus, faPalette, faFont, faSort, faCogs, faTimes, faEye, faDownload, f
 library.add(faPlus, faPalette, faFont, faSort, faCogs, faTimes, faEye, faDownload, faUpload, faSlidersH);
 
 // Action info text
-const [IAddItems, ISettings, IText, IThemes, ISort, IRemove, IPreview, IImport, IExport] = [
+const [IAddItems, ISettings, IText, IThemes, ISort, IRemove, IImport, IExport] = [
     'Click any item to add it to the form',
     'Configure items and general form settings',
     'Edit text and customize typography',
@@ -44,8 +44,8 @@ export default class Tools extends Component {
                             <li onClick={() => BSC.toggleActiveTool('themes')} onMouseEnter={() => BSC.actionInfo(IThemes)} className={BSC.state.activeTool === 'themes' ? toolActiveClass : null}><FontAwesomeIcon icon="palette" /></li>
                             <li onClick={() => BSC.toggleActiveTool('sort')} onMouseEnter={() => BSC.actionInfo(ISort)} className={BSC.state.activeTool === 'sort' ? toolActiveClass : null}><FontAwesomeIcon icon="sort" /></li>
                             <li onClick={() => BSC.toggleActiveTool('remove')} onMouseEnter={() => BSC.actionInfo(IRemove)} className={BSC.state.activeTool === 'remove' ? toolActiveClass : null}><FontAwesomeIcon icon="times" /></li>
-                            <li onClick={() => BSC.toggleActiveTool('preview')} onMouseEnter={() => BSC.actionInfo(IPreview)} className={BSC.state.activeTool === 'preview' ? toolActiveClass : null} data-tools-after-bottom><FontAwesomeIcon icon="eye" /></li>
-                            <li onClick={() => BSC.toggleActiveTool('import')} onMouseEnter={() => BSC.actionInfo(IImport)} className={BSC.state.activeTool === 'import' ? toolActiveClass : null}><FontAwesomeIcon icon="upload" /></li>
+                            {/*<li onClick={() => BSC.toggleActiveTool('preview')} onMouseEnter={() => BSC.actionInfo(IPreview)} className={BSC.state.activeTool === 'preview' ? toolActiveClass : null} data-tools-after-bottom><FontAwesomeIcon icon="eye" /></li>*/}
+                            <li onClick={() => BSC.toggleActiveTool('import')} onMouseEnter={() => BSC.actionInfo(IImport)} className={BSC.state.activeTool === 'import' ? toolActiveClass : null} data-tools-after-bottom><FontAwesomeIcon icon="upload" /></li>
                             <li onClick={() => BSC.toggleActiveTool('export')} onMouseEnter={() => BSC.actionInfo(IExport)} className={BSC.state.activeTool === 'export' ? toolActiveClass : null}><FontAwesomeIcon icon="download" /></li>
                         </ul>
                         <div id="fb-tools-ui" className="custom-scrollbar">
@@ -74,7 +74,7 @@ class ToolsUIPanel extends Component {
                 <ThemesTool show={activeTool !== 'themes' ? false : true} />
                 <SortTool show={activeTool !== 'sort' ? false : true} canvasState={this.props.builderState.canvas} />
                 <RemoveTool show={activeTool !== 'remove' ? false : true} />
-                <PreviewTool show={activeTool !== 'preview' ? false : true} />
+                {/*<PreviewTool show={activeTool !== 'preview' ? false : true} />*/}
                 <ImportTool show={activeTool !== 'import' ? false : true} />
                 <ExportTool show={activeTool !== 'export' ? false : true} canvasState={this.props.builderState.canvas} />
             </React.Fragment>
