@@ -8,6 +8,7 @@
   --common-background: #FFF;
   --input-field-color: #666;
   --ui-inner-bgcolor: #F7F7F9;
+  --outline-offset: 7px;
   --common-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
   --common-border-radius: 2px;
 }
@@ -121,7 +122,14 @@
   outline: var(--item-hover-outline);
   z-index: 1;
   position: relative;
-  outline-offset: 7px;
+  outline-offset: var(--outline-offset);
+}
+
+#fb-canvas.sort > *,
+#fb-canvas.remove > *,
+#fb-canvas.settings > * {
+  outline: dashed 2px var(--light-border-color);
+  outline-offset: -7px;
 }
 
 #fb-canvas.remove > *:hover {
@@ -138,13 +146,14 @@
 
 #fb-canvas.canvas-outline {
   outline: dashed 2px var(--light-border-color);
-  outline-offset: 7px;
+  outline-offset: var(--outline-offset);
 }
 
 /* empty aligner section */
-.fb-empty-section {
+#fb-canvas.add-items .fb-empty-section {
   min-height: 100px;
   outline: dashed 2px #D3D3D3;
+  outline-offset: var(--outline-offset);
   background-image: url('img/section-empty.png');
   background-repeat: no-repeat;
   background-position: 50%;

@@ -48,11 +48,27 @@ export default class BuilderContainer extends Container {
         previewFormWidth: 1000,
         previewBodyBg: '#FFF',
         // Form canvas components
+        formulatorObj: {
+            canvas: [
+                {
+                    tag: 'AlignerCol1',
+                    children: {
+                        section1: [
+                            {
+                                tag: 'H1',
+                                text: 'Hello world',
+                                settings: {
+                                    align: 'center'
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
         canvas: (
             <React.Fragment>
-                {this.prepareItemsForCanvas([
-                    //{component: <Header1 text1="Application Form" text2="Lorem ipsum dolor dit amet" text3="this is a test" key="1"></Header1>}
-                ])}
+                {this.prepareItemsForCanvas([])}
             </React.Fragment>
         )
     }
@@ -106,7 +122,6 @@ export default class BuilderContainer extends Container {
     // Canvas mouse enter
     canvasMouseEnter = () => {
         if( this.state.activeSection && this.state.activeTool === 'add-items' ) {
-            console.log('sdfs')
             this.setState({
                 canvasHoverFocus: true
             })
@@ -147,15 +162,20 @@ export default class BuilderContainer extends Container {
 
     // ColorsMenu change color
     colorsMenuChangeColor = (event, checkedBoxes) => {
-        console.log(event.target, checkedBoxes)
+        //console.log(event.target, checkedBoxes)
     }
 
 
     // CANVAS MODIFIERS: Modify the canvas state
     // Insert content in canvas
     canvasModInsert = (ItemId) => {
-        const item = this.prepareItemsForCanvas([{component: ItemsIndex[ItemId].tag}]);
-        const canvasItems = this.state.canvas.props.children; // Get React.Fragment children in current canvas
+        //const item = this.prepareItemsForCanvas([{component: ItemsIndex[ItemId].tag}]);
+        const formulatorObjNew = this.state.formulatorObj;
+        formulatorObjNew.canvas.push({tag: ItemId})
+        this.setState({
+            formulatorObj: formulatorObjNew
+        });
+        /*const canvasItems = this.state.canvas.props.children; // Get React.Fragment children in current canvas
         const canvasItemsList = List(canvasItems); // Convert to list for modification
         let newCanvasState;
         if( !this.state.activeSection ) {
@@ -166,14 +186,13 @@ export default class BuilderContainer extends Container {
             const itemSectionProp = this.state.activeSection[1];
             const sectionChildren = canvasItems[clickedItemIndex].props[itemSectionProp];
             sectionChildren.push(item);
-            console.log(itemSectionProp)
             const cloneAndInsert = React.cloneElement(canvasItems[clickedItemIndex], {
                 [itemSectionProp]: sectionChildren
             });
             const replaceItem = canvasItemsList.set(clickedItemIndex, cloneAndInsert);
             newCanvasState = replaceItem.toJS();
         }
-        this.setState({canvas: <React.Fragment>{newCanvasState}</React.Fragment>});
+        this.setState({canvas: <React.Fragment>{newCanvasState}</React.Fragment>});*/
     }
 
     // Remove item from canvas

@@ -3,7 +3,7 @@ import {InfoCell, ActionButton} from '../ui-components';
 
 export default class ExportTool extends Component {
     export = () => {
-        console.log(this.props.canvasState.props.children)
+        //console.log(this.props.canvasState.props.children)
     }
 
     render() {

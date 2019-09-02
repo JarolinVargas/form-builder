@@ -20,7 +20,9 @@ export default class ThemesTool extends Component {
             ]
         },
         toggleSwitchOptions: [
-            {label: 'round input fields', stateProp: 'formRoundInputs'}
+            {label: 'round input fields', stateProp: 'formRoundInputs'},
+            {label: 'shadow input fields', stateProp: 'formRoundInputs'},
+            {label: 'underlined input fields', stateProp: 'formRoundInputs'}
         ],
         rangeOptions: [
             {label: 'Items Spacing', target: null}
