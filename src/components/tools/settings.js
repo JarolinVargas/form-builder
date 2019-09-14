@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Subscribe} from 'unstated';
 import BuilderContainer from '../../builder-state';
-import {ItemsIndex} from '../../output-resources/items-index';
+import {ItemsIndex} from '../../output/items-index';
 import {UIComponentsIndex, InputTextField, ToggleSwitch, RangeInput, InputRadioOptions, InfoCell} from '../ui-components';
 
 export default class SettingsTool extends Component {

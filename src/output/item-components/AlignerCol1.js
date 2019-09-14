@@ -1,5 +1,5 @@
 import React from 'react';
-import './Aligners.scss';
+import './AlignerCol1.scss';
 
 export default function AlignerCol1(props) {
     const outlineClass = props.outlineItem === true ? 'fb-sorting-item' : '';

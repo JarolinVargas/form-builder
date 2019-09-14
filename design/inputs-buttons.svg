@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="250" height="709" viewBox="0 0 250 709">
+  <defs>
+    <filter id="Rectangle_1" x="10" y="400" width="230" height="40" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_2" x="1" y="149" width="248" height="74" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-custom_1">
+      <rect width="250" height="709"/>
+    </clipPath>
+  </defs>
+  <g id="custom_1" data-name="custom – 1" clip-path="url(#clip-custom_1)">
+    <rect width="250" height="709" fill="#fff"/>
+    <g id="underline-dashed" transform="translate(0 147)">
+      <path id="Path_1" data-name="Path 1" d="M0,0H230" transform="translate(10 130.5)" fill="none" stroke="#d7d7d7" stroke-width="2" stroke-dasharray="5 5"/>
+      <text id="Label" transform="translate(10 101)" fill="#707070" font-size="12" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="0" y="0">Label</tspan></text>
+    </g>
+    <g id="short-shadow" transform="translate(0 373)">
+      <g transform="matrix(1, 0, 0, 1, 0, -373)" filter="url(#Rectangle_1)">
+        <rect id="Rectangle_1-2" data-name="Rectangle 1" width="230" height="38" transform="translate(10 400)" fill="#f7f7f9"/>
+      </g>
+      <text id="Label-2" data-name="Label" transform="translate(10 22)" fill="#707070" font-size="12" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="0" y="0">Label</tspan></text>
+    </g>
+    <g id="outline" transform="translate(0 293)">
+      <g id="Rectangle_1-3" data-name="Rectangle 1" transform="translate(10 27)" fill="none" stroke="#d7d7d7" stroke-width="2">
+        <rect width="230" height="38" stroke="none"/>
+        <rect x="1" y="1" width="228" height="36" fill="none"/>
+      </g>
+      <text id="Label-3" data-name="Label" transform="translate(10 22)" fill="#707070" font-size="12" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="0" y="0">Label</tspan></text>
+    </g>
+    <g id="shadow" transform="translate(0 16)">
+      <g transform="matrix(1, 0, 0, 1, 0, -16)" filter="url(#Rectangle_2)">
+        <rect id="Rectangle_2-2" data-name="Rectangle 2" width="230" height="56" transform="translate(10 156)" fill="#fff"/>
+      </g>
+      <text id="Label-4" data-name="Label" transform="translate(16 157)" fill="#707070" font-size="12" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="0" y="0">Label</tspan></text>
+    </g>
+    <g id="underline">
+      <line id="Line_1" data-name="Line 1" x2="230" transform="translate(10 130.5)" fill="none" stroke="#d7d7d7" stroke-width="2"/>
+      <text id="Label-5" data-name="Label" transform="translate(10 101)" fill="#707070" font-size="12" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="0" y="0">Label</tspan></text>
+    </g>
+    <g id="default">
+      <g id="Rectangle_1-4" data-name="Rectangle 1" transform="translate(10 27)" fill="#f7f7f9" stroke="#d7d7d7" stroke-width="1">
+        <rect width="230" height="38" stroke="none"/>
+        <rect x="0.5" y="0.5" width="229" height="37" fill="none"/>
+      </g>
+      <text id="Label-6" data-name="Label" transform="translate(10 22)" fill="#707070" font-size="12" font-family="HelveticaNeue-Medium, Helvetica Neue" font-weight="500"><tspan x="0" y="0">Label</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -12,8 +12,8 @@ import ImportTool from './tools/import';
 import ExportTool from './tools/export';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faPlus, faPalette, faFont, faSort, faCogs, faTimes, faEye, faDownload, faUpload, faSlidersH} from '@fortawesome/free-solid-svg-icons';
-library.add(faPlus, faPalette, faFont, faSort, faCogs, faTimes, faEye, faDownload, faUpload, faSlidersH);
+import {faPlus, faPalette, faFont, faSort, faCogs, faTimes, faEye, faDownload, faUpload, faSlidersH, faArrowsAlt} from '@fortawesome/free-solid-svg-icons';
+library.add(faPlus, faPalette, faFont, faSort, faCogs, faTimes, faEye, faDownload, faUpload, faSlidersH, faArrowsAlt);
 
 // Action info text
 const [IAddItems, ISettings, IText, IThemes, ISort, IRemove, IImport, IExport] = [
@@ -42,7 +42,7 @@ export default class Tools extends Component {
                             <li onClick={() => BSC.toggleActiveTool('settings')} onMouseEnter={() => BSC.actionInfo(ISettings)} className={BSC.state.activeTool === 'settings' ? toolActiveClass : null}><FontAwesomeIcon icon="sliders-h" /></li>
                             <li onClick={() => BSC.toggleActiveTool('text')} onMouseEnter={() => BSC.actionInfo(IText)} className={BSC.state.activeTool === 'text' ? toolActiveClass : null}><FontAwesomeIcon icon="font" /></li>
                             <li onClick={() => BSC.toggleActiveTool('themes')} onMouseEnter={() => BSC.actionInfo(IThemes)} className={BSC.state.activeTool === 'themes' ? toolActiveClass : null}><FontAwesomeIcon icon="palette" /></li>
-                            <li onClick={() => BSC.toggleActiveTool('sort')} onMouseEnter={() => BSC.actionInfo(ISort)} className={BSC.state.activeTool === 'sort' ? toolActiveClass : null}><FontAwesomeIcon icon="sort" /></li>
+                            <li onClick={() => BSC.toggleActiveTool('sort')} onMouseEnter={() => BSC.actionInfo(ISort)} className={BSC.state.activeTool === 'sort' ? toolActiveClass : null}><FontAwesomeIcon icon="arrows-alt" /></li>
                             <li onClick={() => BSC.toggleActiveTool('remove')} onMouseEnter={() => BSC.actionInfo(IRemove)} className={BSC.state.activeTool === 'remove' ? toolActiveClass : null}><FontAwesomeIcon icon="times" /></li>
                             {/*<li onClick={() => BSC.toggleActiveTool('preview')} onMouseEnter={() => BSC.actionInfo(IPreview)} className={BSC.state.activeTool === 'preview' ? toolActiveClass : null} data-tools-after-bottom><FontAwesomeIcon icon="eye" /></li>*/}
                             <li onClick={() => BSC.toggleActiveTool('import')} onMouseEnter={() => BSC.actionInfo(IImport)} className={BSC.state.activeTool === 'import' ? toolActiveClass : null} data-tools-after-bottom><FontAwesomeIcon icon="upload" /></li>

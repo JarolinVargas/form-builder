@@ -110,7 +110,7 @@
   width: 710px;
   background-color: #FFF;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 /* Styles based on active tool */
@@ -221,6 +221,8 @@
   padding-bottom: 8px;
   padding-left: 25px;
   box-sizing: border-box;
+  line-height: 1.4;
+  background-color: var(--common-background);
   border: var(--common-border);
   border-left-color: var(--primary-color);
   border-left-width: 3px;
@@ -293,6 +295,7 @@
   border: 0;
   padding-top: 20px;
   padding-bottom: 10px;
+  font-weight: 700;
   font-size: 1.15em;
   background-color: transparent;
   color: var(--input-field-color);

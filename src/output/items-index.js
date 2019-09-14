@@ -1,6 +1,6 @@
 import React from 'react';
 import AlignerCol1 from './item-components/AlignerCol1.js';
-import {H1} from './item-components/Headings.js';
+import Heading from './item-components/Text.js';
 
 /*  Components index. id should match item key
     set settings for individual components. */
@@ -19,10 +19,10 @@ export const ItemsIndex = {
                 {label: 'placeholder2', target: null}
             ]
         }
-    },
-    H1: {
+    }
+    /*H1: {
         id: 'H1',
-        tag: <H1 text="Application Formss"/>,
+        tag: <Heading text="Application Formss"/>,
         settings: {
             ToggleSwitch: [
                 {label: 'remove top padding', target: null},
@@ -34,5 +34,5 @@ export const ItemsIndex = {
                 {label: 'placeholder2', target: null}
             ]
         }
-    }
+    }*/
 }

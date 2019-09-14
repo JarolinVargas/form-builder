@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container} from 'unstated';
 import {List} from 'immutable';
-import {ItemsIndex} from './output-resources/items-index';
+import {ItemsIndex} from './output/items-index';
 
 export default class BuilderContainer extends Container {
     /*  Prepare item to add to canvas
