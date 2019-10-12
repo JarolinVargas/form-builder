@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg">
     <defs>
+        <symbol id="Aligner">
+            <path id="Path_1" data-name="Path 1" class="cls-2" d="M6 0l218 2" transform="translate(3.5 61.5)" fill="#D3D3D3" stroke="#D3D3D3"/>
+            <path id="Path_2" data-name="Path 2" class="cls-2" d="M6 0l168.276 1.758" transform="translate(28.412 71.742)" fill="#D3D3D3" stroke="#D3D3D3"/>
+            <path id="Path_3" data-name="Path 3" d="M63.5 34.5h110.607" stroke-width="17" stroke-dasharray="16 3" fill="#D3D3D3" stroke="#D3D3D3"/>
+        </symbol>
         <symbol id="AlignerCol1">
             <path id="Path_1" data-name="Path 1" class="cls-2" d="M6 0l218 2" transform="translate(3.5 61.5)" fill="#D3D3D3" stroke="#D3D3D3"/>
             <path id="Path_2" data-name="Path 2" class="cls-2" d="M6 0l168.276 1.758" transform="translate(28.412 71.742)" fill="#D3D3D3" stroke="#D3D3D3"/>
             <path id="Path_3" data-name="Path 3" d="M63.5 34.5h110.607" stroke-width="17" stroke-dasharray="16 3" fill="#D3D3D3" stroke="#D3D3D3"/>
         </symbol>
-        <symbol id="Header2">
-            <path id="Path_1" data-name="Path 1" class="cls-2" d="M6 0l218 2" transform="translate(3.5 61.5)" fill="#D3D3D3" stroke="#D3D3D3"/>
-            <path id="Path_2" data-name="Path 2" class="cls-2" d="M6 0l168.276 1.758" transform="translate(28.412 71.742)" fill="#D3D3D3" stroke="#D3D3D3"/>
-            <path id="Path_3" data-name="Path 3" d="M63.5 34.5h110.607" stroke-width="17" stroke-dasharray="16 3" fill="#D3D3D3" stroke="#D3D3D3"/>
-        </symbol>
-        <symbol id="Header3">
+        <symbol id="AlignerCol2">
             <path id="Path_1" data-name="Path 1" class="cls-2" d="M6 0l218 2" transform="translate(3.5 61.5)" fill="#D3D3D3" stroke="#D3D3D3"/>
             <path id="Path_2" data-name="Path 2" class="cls-2" d="M6 0l168.276 1.758" transform="translate(28.412 71.742)" fill="#D3D3D3" stroke="#D3D3D3"/>
             <path id="Path_3" data-name="Path 3" d="M63.5 34.5h110.607" stroke-width="17" stroke-dasharray="16 3" fill="#D3D3D3" stroke="#D3D3D3"/>

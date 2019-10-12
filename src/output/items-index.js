@@ -1,13 +1,12 @@
 import React from 'react';
-import AlignerCol1 from './item-components/AlignerCol1.js';
-import Heading from './item-components/Text.js';
+import Aligner from './items/Aligners.js';
 
 /*  Components index. id should match item key
     set settings for individual components. */
 export const ItemsIndex = {
-    AlignerCol1: {
-        id: 'AlignerCol1',
-        tag: <AlignerCol1 section1={[]}/>,
+    Aligner: {
+        id: 'Aligner',
+        tag: <Aligner section1={[]}/>,
         settings: {
             ToggleSwitch: [
                 {label: 'remove top padding', target: null},
@@ -19,20 +18,13 @@ export const ItemsIndex = {
                 {label: 'placeholder2', target: null}
             ]
         }
+    },
+    AlignerCol2: {
+        id: 'AlignerCol2',
+        tag: <Aligner section1={[]} section2={[]}/>
+    },
+    AlignerCol3: {
+        id: 'AlignerCol3',
+        tag: <Aligner section1={[]} section2={[]} section3={[]}/>
     }
-    /*H1: {
-        id: 'H1',
-        tag: <Heading text="Application Formss"/>,
-        settings: {
-            ToggleSwitch: [
-                {label: 'remove top padding', target: null},
-                {label: 'remove bottom padding', target: null},
-                {label: 'remove margins', target: null}
-            ],
-            InputTextField: [
-                {label: 'placeholder1', target: null},
-                {label: 'placeholder2', target: null}
-            ]
-        }
-    }*/
 }
