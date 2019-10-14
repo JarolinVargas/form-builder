@@ -107,7 +107,6 @@ export default class BuilderContainer extends Container {
     // Canvas mouse enter
     canvasMouseEnter = () => {
         if( this.state.activeSection && this.state.activeTool === 'add-items' ) {
-            console.log('sdfs')
             this.setState({
                 canvasHoverFocus: true
             })

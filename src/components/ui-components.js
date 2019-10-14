@@ -383,5 +383,6 @@ export function InfoCell(props) {
 // UI components index
 export const UIComponentsIndex = {
     InputTextField: <InputTextField marginBottom30/>,
-    ToggleSwitch: <ToggleSwitch marginBottom30/>
+    ToggleSwitch: <ToggleSwitch marginBottom30/>,
+    RangeInput: <RangeInput/>
 }
