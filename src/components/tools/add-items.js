@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Subscribe} from 'unstated';
-import {ItemsIndex} from '../../output/items-index';
+import {ItemsIndex, ItemsCategories} from '../../output/items-index';
 import BuilderContainer from '../../builder-state';
 import itemsSprite from '../../img/items-banners-svg/items-banners-sprite.svg';
 

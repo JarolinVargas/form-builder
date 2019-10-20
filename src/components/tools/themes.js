@@ -1,22 +1,23 @@
 import React, {Component} from 'react';
 import {InputTextField, ToggleSwitch, RangeInput, InfoCell, InputRadioOptions, ColorsMenu} from '../ui-components';
+import Input from '../../output/items/Input.js';
 
 export default class ThemesTool extends Component {
     themesSettings = {
         inputRadioCheckboxOptions: {
             inputStyleOptions: [
-                {label: <input type="text" className="ui-style-input"/>, value: 'input-style-1', stateProp: 'formInputsStyle'},
-                {label: <input type="text" className="ui-style-input"/>, value: 'input-style-2', stateProp: 'formInputsStyle'},
-                {label: <input type="text" className="ui-style-input"/>, value: 'input-style-3', stateProp: 'formInputsStyle'},
-                {label: <input type="text" className="ui-style-input"/>, value: 'input-style-4', stateProp: 'formInputsStyle'},
-                {label: <input type="text" className="ui-style-input"/>, value: 'input-style-5', stateProp: 'formInputsStyle'}
+                {label: <Input label="Input label"/>, value: 'f8r-input-style-1', stateProp: 'formInputsStyle'},
+                {label: <Input label="Input label"/>, value: 'f8r-input-style-2', stateProp: 'formInputsStyle'},
+                {label: <Input label="Input label"/>, value: 'f8r-input-style-3', stateProp: 'formInputsStyle'},
+                {label: <Input label="Input label"/>, value: 'f8r-input-style-4', stateProp: 'formInputsStyle'},
+                {label: <Input label="Input label"/>, value: 'f8r-input-style-5', stateProp: 'formInputsStyle'}
             ],
             buttonsStyleOptions: [
-                {label: <button>Style</button>, value: 'buttons-style-1', stateProp: 'formButtonsStyle'},
-                {label: <button>Style</button>, value: 'buttons-style-2', stateProp: 'formButtonsStyle'},
-                {label: <button>Style</button>, value: 'buttons-style-3', stateProp: 'formButtonsStyle'},
-                {label: <button>Style</button>, value: 'buttons-style-4', stateProp: 'formButtonsStyle'},
-                {label: <button>Style</button>, value: 'buttons-style-5', stateProp: 'formButtonsStyle'}
+                {label: <button>Style</button>, value: 'f8r-buttons-style-1', stateProp: 'formButtonsStyle'},
+                {label: <button>Style</button>, value: 'f8r-buttons-style-2', stateProp: 'formButtonsStyle'},
+                {label: <button>Style</button>, value: 'f8r-buttons-style-3', stateProp: 'formButtonsStyle'},
+                {label: <button>Style</button>, value: 'f8r-buttons-style-4', stateProp: 'formButtonsStyle'},
+                {label: <button>Style</button>, value: 'f8r-buttons-style-5', stateProp: 'formButtonsStyle'}
             ]
         },
         toggleSwitchOptions: [

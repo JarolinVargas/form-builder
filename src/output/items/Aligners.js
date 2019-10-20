@@ -9,6 +9,7 @@ export default function Aligner(props) {
                 { !props.section1 ? null : <div className={"f8r-col" + (!props.section1.length ? " fb-empty-section" : "")} onClick={(section) => props.sectionClick("section1")} onMouseEnter={() => props.sectionHover(true)} onMouseLeave={() => props.sectionHover(false)}>{props.section1}</div> }
                 { !props.section2 ? null : <div className={"f8r-col" + (!props.section2.length ? " fb-empty-section" : "")} onClick={(section) => props.sectionClick("section2")} onMouseEnter={() => props.sectionHover(true)} onMouseLeave={() => props.sectionHover(false)}>{props.section2}</div> }
                 { !props.section3 ? null : <div className={"f8r-col" + (!props.section3.length ? " fb-empty-section" : "")} onClick={(section) => props.sectionClick("section3")} onMouseEnter={() => props.sectionHover(true)} onMouseLeave={() => props.sectionHover(false)}>{props.section3}</div> }
+                { !props.section4 ? null : <div className={"f8r-col" + (!props.section4.length ? " fb-empty-section" : "")} onClick={(section) => props.sectionClick("section4")} onMouseEnter={() => props.sectionHover(true)} onMouseLeave={() => props.sectionHover(false)}>{props.section4}</div> }
             </div> 
         </div>
     );

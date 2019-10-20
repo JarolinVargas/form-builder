@@ -17,7 +17,7 @@ export default class Canvas extends Component {
                 {BSC => (
                     <form
                         id="fb-canvas"
-                        className={`formulator ${BSC.state.activeTool}${this.outlineCanvas(BSC.state.activeTool, BSC.state.activeSection)}${this.outlineCanvasFocus(BSC.state.canvasHoverFocus)}`}
+                        className={`formulator ${BSC.state.formInputsStyle} ${BSC.state.activeTool}${this.outlineCanvas(BSC.state.activeTool, BSC.state.activeSection)}${this.outlineCanvasFocus(BSC.state.canvasHoverFocus)}`}
                         onClick={BSC.canvasClicked}
                         onMouseEnter={BSC.canvasMouseEnter}
                         onMouseLeave={BSC.canvasMouseLeave}

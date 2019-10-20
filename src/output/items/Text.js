@@ -1,8 +1,9 @@
 import React from 'react';
+import './Text.scss';
 
-export default function Heading(props) {
+export default function Text(props) {
     const outlineClass = props.outlineItem === true ? 'fb-sorting-item' : '';
     return (
-        <h1 contentEditable={props.contentEditableOn} onBlur={props.itemTextBlur} data-text-prop='text' onDoubleClick={props.itemDoubleClick}>{props.text}</h1>
+        <p contentEditable={props.contentEditableOn} onBlur={props.itemTextBlur} data-text-prop='text' onClick={props.itemClick} onDoubleClick={props.itemDoubleClick}>{props.text}</p>
     );
 }

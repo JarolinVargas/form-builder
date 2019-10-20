@@ -38,7 +38,7 @@ export default class BuilderContainer extends Container {
         targetAttr: '_self',
         autocompleteAttr: false,
         // Form classes
-        formInputsStyle: 'input-style-2',
+        formInputsStyle: 'f8r-input-style-1',
         formButtonsStyle: 'buttons-style-3',
         formRoundInputs: 'round-inputs',
         // General settings
